@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dp1166hwmnsxb"
+
+[deps]
+
+files=["res://Data/events_chapter1.title.translation", "res://Data/events_chapter1.desc.translation", "res://Data/events_chapter1.trigger.translation", "res://Data/events_chapter1.type.translation", "res://Data/events_chapter1.options.translation", "res://Data/events_chapter1.effect.translation", "res://Data/events_chapter1.effect.translation"]
+
+source_file="res://Data/events_chapter1.csv"
+dest_files=["res://Data/events_chapter1.title.translation", "res://Data/events_chapter1.desc.translation", "res://Data/events_chapter1.trigger.translation", "res://Data/events_chapter1.type.translation", "res://Data/events_chapter1.options.translation", "res://Data/events_chapter1.effect.translation", "res://Data/events_chapter1.effect.translation"]
+
+[params]
+
+compress=true
+delimiter=0

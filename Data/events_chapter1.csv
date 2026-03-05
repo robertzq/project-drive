@@ -1,0 +1,51 @@
+id,title,desc,trigger,type,options,effect_a,effect_b
+EVT_100_NO_PC,无电脑困境,旧电脑又蓝屏了。看着室友丝滑地编译代码，你感到生产力的巨大差距。,dorm_enter,STATUS,忍受卡顿|去网吧写,stress:5:STATUS,money:-20;stress:-10:GEN
+EVT_101_BUY_PC,生产力工具,那台¥5000的 MacBook Air 在网页上闪闪发光。买了它没钱吃饭，不买像个原始人。,dorm_enter,MONEY,咬牙买下|凑合用旧的,money:-5000;pride:2;stress:-50:GEN,stress:10:MONEY
+EVT_102_XUAN_PC,富人的建议,你咨询买电脑的事。Xuan 和他室友惊呼：“才5000预算？太难了。”他们带你去买了一台“高性价比”游戏本。,dorm_enter,EGO,听从建议|自己再看看,money:-6000;pride:-2;trait:游戏沉迷:GEN,pride:1;stress:10:GEN
+EVT_103_POOR_PC,机房难民,没钱买电脑，只能去机房蹭。U盘插来插去，代码经常版本冲突。但你在深夜的机房里学会了盲打。,lib_enter,MONEY,继续坚持|借钱买旧款,sed:3;stress:20:WORK,money:-2000;stress:-10:GEN
+EVT_105_RICH_BDAY,富哥的生日宴,富二代请全班去最大的饭店。你第一次喝多，说了胡话，被暗恋的女生看到了。那是18岁的尴尬。,dorm_enter,EGO,去凑热闹|找借口不去,money:-200;pride:-5;stress:10:EGO,pride:-2;stress:20:EGO
+EVT_109_NIGHT_NOODLE,深夜炒面,路边摊的油烟味。老板娘多给你加了一个蛋，说：“大学生不容易啊。”这是本周唯一的温暖。,cafe_enter,GEN,大口吃完|在那发呆,stress:-10:GEN,stress:0:GEN
+EVT_201_FAKE_POOR,奖学金的秘密,听说 Zhe 拿到了贫困生助学金，但他脚上那双鞋好像是新款 AJ。大家心照不宣。,lib_enter,EGO,公开质疑|装作不知道,pride:2;stress:20:EGO,entropy:1;stress:5:GEN
+EVT_202_SCAM_PARTTIME,校花的诱惑,校花给你介绍刷单兼职：“动动手指就赚200。”你看着她真诚的眼睛，有点犹豫。,dorm_enter,WORK,这钱我赚了|感觉是陷阱,money:200;trait:投机者;sed:-2:WORK,pride:1;sed:1:GEN
+EVT_204_DEADLOCK,死锁的二叉树,数据结构太难了。屏幕全是报错。Xuan 早就写完了在打游戏，Zhe 还在睡觉。,lib_enter,STUDY,死磕到底|抄室友作业,stress:25;sed:5:WORK,stress:5;sed:0:GEN
+EVT_302_FATHER_CALL,父亲的电话,父亲声音支吾：“最近手头紧，生活费能不能晚几天……”你听到了电话那头的咳嗽声。,dorm_enter,EGO,安慰父亲|表示不满,stress:20;pride:2:EGO,stress:10;pride:-5:EGO
+EVT_303_FATHER_SICK,突发变故,家里来电话，父亲心脏病急需手术。你买了最近的红眼航班飞回去。机票钱是你所有的积蓄。,dorm_enter,MONEY,用最好的器材|保守治疗,money:-5000;pride:5;stress:50:GEN,money:-1000;stress:30;pride:-10:GEN
+EVT_INTRO_HONG,刷机的快乐,军训卧谈会。Hong 说他除了打乒乓球还会刷 Nokia 系统。你兴奋地拿出了你的 Nokia 5230。,dorm_enter,GEN,通宵刷机|早点睡觉,relation_hong:10;sed:1;stress:10:GEN,stress:-5:GEN
+EVT_INTRO_XUAN,阶级的参差,军训卧谈会。Xuan 拿出了 iPod Nano 和森海塞尔耳机。你连牌子都没听说过，只觉得好听。,dorm_enter,EGO,借来听听|默默羡慕,entropy:1;pride:-1:GEN,stress:5:EGO
+EVT_LIB_ZQY,团支书的复习,期末图书馆。Zqy 看你高数书还是白的，叹了口气：“算了，我带你复习吧。”她讲得很细。,lib_enter,STUDY,感激接受|不想麻烦她,sed:5;relation_zqy:10:STUDY,pride:1;stress:10:EGO
+EVT_LIB_LU,独行学霸,你去找 Lu 复习。她抬头看了你一眼，说她习惯一个人看书，不太会教人。空气突然安静。,lib_enter,EGO,尴尬离开|强行请教,stress:10;pride:-2:EGO,sed:2;stress:20;relation_lu:-5:WORK
+EVT_DORM_CS,考前的疯狂,Java 考试前夜。大家都在背算法，你和 Xuan 在打 CS。Zhe 推门进来，看到这一幕，沉默了。,dorm_enter,GEN,继续打|关电脑复习,stress:-20;sed:-5:GEN,stress:10;sed:2:STUDY
+EVT_CODE_ELEGANCE,代码的优雅,大作业你功能全实现了，但被老师批代码烂。你看了 Xuan 的代码，那是你第一次知道代码可以写得像诗。,lab_enter,STUDY,请教架构|不服气,entropy:5;pride:-2:WORK,pride:2;sed:0:EGO
+EVT_DEBUG_MASTER,调试员,Xuan 嫌帮同学 Debug 太麻烦，把人推给了你。你虽然累，但在一次次报错中获得了某种成就感。,lab_enter,WORK,来者不拒|专注于己,sed:8;stress:15:WORK,sed:2;stress:0:GEN
+EVT_ZHE_500,富哥的代写,Zhe 掏出 500 块让你帮做大作业。你犹豫时，Xuan 随手接了单子：“行，今晚给你。”你震惊于他的手速。,dorm_enter,MONEY,羡慕Xuan|鄙视这种行为,entropy:1;pride:-2:GEN,pride:2:EGO
+EVT_CLUB_JOIN,百团大战,社团纳新。看着热闹的摊位，你很纠结。Xuan 说：“这种过家家没意义，跟我做项目吧。”,cafe_enter,GEN,听Xuan的|加入社团,sed:5;relation_xuan:5:WORK,charm:3;stress:-5:GEN
+EVT_CIRCUIT_HARD,模电天书,模拟电路太难了。你去图书馆死磕，发现 Xuan 也在。天赋的差距有时候比努力更让人绝望。,lib_enter,STUDY,抱团复习|放弃治疗,sed:4;stress:20:WORK,stress:-10;sed:0:GEN
+EVT_FIRST_DAY,报到第一天,父母送你到寝室。看着舍友父母开来的豪车，和你父亲肩上的编织袋，你第一次读懂了“起跑线”。,dorm_enter,EGO,主动打招呼|默默整理床铺,charm:2;stress:5:GEN,pride:1;stress:10:EGO
+EVT_THIEF_GOSSIP,隔壁的八卦,听说隔壁班体面的班长偷了室友东西。告诉你八卦的同学让你别外传。人性比代码复杂。,dorm_enter,GEN,感叹唏嘘|不信谣,entropy:1:GEN,stress:0:GEN
+EVT_EX_GF_VISIT,故人的探望,高中暗恋的女生来看你。她穿得很精致，却被灌木挂破了丝袜。她随手扔了那双丝袜，你有些震惊。,cafe_enter,EGO,陪她逛街|送她去车站,charm:5;pride:-5;money:-200:GEN,pride:2;stress:10:EGO
+EVT_LIB_HUGE,庞大的图书馆,图书馆好大，大三大四的学姐在考研占座。你看不懂书，Zqy 坐到你旁边，陪你默默看了一下午。,lib_enter,STUDY,安心看书|心猿意马,sed:5;stress:-10:STUDY,charm:2;sed:1:GEN
+EVT_GE_SHOCK,GE的震撼,跟着老师去GE参观。宽敞的食堂，丰富的餐线。你做的Emacs插件居然有了GE账号。你只想留在这。,office_enter,WORK,渴望留下|感到自卑,entropy:10;motivation:5:WORK,pride:-5;stress:20:EGO
+EVT_PHD_META,未来的Meta大佬,那个总问你基础问题的女生，后来去了Meta读博。你现在对她爱答不理，以后高攀不起。,lib_enter,GEN,耐心解答|敷衍了事,sed:2;relation_future_phd:10:WORK,stress:-5;relation_future_phd:-50:GEN
+EVT_HONG_OFFER,株洲的邀请,毕业季。Hong 问你要不要去株洲做 Windows Phone。他说跟着 Xuan 没出路，他需要你的技术。,dorm_enter,WORK,接受邀请|委婉拒绝,path_branch:hong_wp;stress:10:WORK,stress:0:GEN
+EVT_STARTUP_BOSS,面试官的私聊,面试结束，面试官私下打给你：“实习工资太低了，跟我创业吧。”他给的数字让你心动。,office_enter,WORK,跟他干|还是大厂稳,money:5000;path_branch:startup_boss:WORK,sed:2;security:5:GEN
+EVT_MARK_DEMO,赶工的创意,Mark 需要你通宵几天做一个 Demo 给资方看。你拼了命做出来，资方认可了，你也自信了。,lab_enter,WORK,通宵赶工|身体要紧,sed:10;pride:5;stress:30:WORK,stress:-10;sed:0:GEN
+EVT_GRAD_HELP,闺蜜的毕设,最好的女闺蜜求你帮做毕设。你技术大成，轻松搞定。你庆幸自己终于有余力帮人了。,lib_enter,GEN,帮她做|原则问题拒绝,charm:5;pride:5:GEN,pride:2;relation_bff:-10:EGO
+EVT_ZQY_CRY,团支书的眼泪,期末复习。你问了太多基础问题，Zqy 急哭了。Xuan 过来指责你拖累了大家。那是你最无地自容的时刻。,lib_enter,EGO,道歉并自学|默默离开,sed:5;pride:-10;stress:30:WORK,stress:10;relation_zqy:-5:GEN
+EVT_CLUB_LEADER,拒绝部长,老部长问你要不要接班。你想起 Xuan 说“社团没用”，于是赤裸裸地拒绝了。老部长眼神黯淡。,cafe_enter,GEN,还是拒绝|犹豫答应,entropy:2;charm:-5:GEN,charm:5;sed:-2:GEN
+EVT_PEACE_READ,宁静的午后,周末和部门搭档一起看书。没有代码，没有焦虑。那天阳光很好。后来她回老家考公了。,lib_enter,GEN,享受宁静|聊聊未来,sanity:10;stress:-20:GEN,entropy:1;stress:-5:GEN
+EVT_XUAN_SEAL,公章门,Xuan 私藏了公章。Mark 在群里发了公告。曾经并肩作战的兄弟，现在为了利益撕破脸。,office_enter,EGO,站队Mark|保持沉默,sed:5;relation_mark:10:GEN,sed:2;stress:10:GEN
+EVT_XUAN_DINNER_2,消失的红烧肉,导师请客。Xuan 还是那样，一个人吃光了最好的菜。你看着他，觉得他既可怜又可恨。,cafe_enter,EGO,提醒他|无视他,pride:-2:GEN,stress:5:GEN
+EVT_XUAN_100,一百元的挽回,退出团队时，Xuan 转给你100块。“大家还是兄弟。”你看着屏幕，觉得这比骂你还难受。,dorm_enter,EGO,收下|退回,money:100;pride:-10:GEN,pride:10;sed:5:GEN
+EVT_LU_CRY_99,99分的崩溃,Lu 因为高数考99分在哭。Zhe 本来想安慰，听完理由想死。人类的悲欢并不相通。,dorm_enter,GEN,安慰Lu|心疼Zhe,stress:20:GEN,stress:-10;pride:2:GEN
+EVT_HACKATHON_24H,杨浦不眠夜,创智天地黑客松。连续开发24小时，你搞定了底层 C++ 对接。投资人问移动机制，你说 'Fast Run'。Xiao 嗤笑一声：“那叫 Dash。”你愣住了。,competition_enter,WORK,反驳(代码跑通就行)|羞愧(我是土鳖),sed:15;stress:30;pride:5:WORK,sed:15;stress:40;pride:-10;sanity:-5:GEN
+EVT_NGINX_HEAVEN,天书Nginx,张江技术沙龙。大神上来直接打开 Nginx 源码讲内存池管理。你仿佛在听一种古老的楔形文字，周围的人却在频频点头。,city_enter,STUDY,硬着头皮听|玩手机装懂,entropy:10;sed:2;stress:15:STUDY,stress:-5;sed:0;pride:-2:GEN
+EVT_CARD_CRISIS,名片危机,魔脑科技的大佬递来精致烫金名片。你作为学生双手恭敬收下。身旁的 Xiao 却懊恼地连拍大腿：“太尴尬了，居然没准备名片！”他觉得自己输了气场。,competition_enter,EGO,淡定收下(我是学生)|跟着懊恼(感同身受),stress:0;sed:2:GEN,stress:10;relation_xiao:5;trait:商业觉醒:EGO
+EVT_ART_SILENCE,美院的压迫感,跟着 Xuan 去见美院教授。满屋子的石膏像。教授谈笑风生聊“交互美学”，Xuan 对答如流。你全程插不进嘴，像个沉默的背景板。,social_enter,EGO,保持沉默|强行插话,stress:5;relation_xuan:5;charm:-2:GEN,stress:20;charm:-5;pride:-5:EGO
+EVT_WRONG_FREQ,错误的频段,去见知名画师。上海高架上车速飞快。你听到个名词，以为自己懂了便接了话。对方追问细节，你哑口无言。事后 Xiao 沉着脸说：“不懂不要轻易开口。”那一刻，你只想跳车。,social_enter,EGO,羞愧铭记|内心抗拒,stress:40;pride:-15;relation_xiao:5;sed:2:EGO,stress:10;relation_xiao:-10;pride:0:GEN
+EVT_NAKED_ROUTER,裸奔的信仰,去隔壁大神寝室串门，看到床头挂着一块绿色的裸露PCB。他淡定地说：“这是路由器，刷了OpenWRT，裸奔散热好。”,dorm_enter,GEN,大受震撼|担心触电,sed:5;entropy:2:WORK,pride:2;sed:0:GEN
+EVT_LITECOIN_DIG,显卡的哀嚎,比特币太贵了，室友拉你挖莱特币(LTC)。你的笔记本烫得能煎蛋，风扇在尖叫。你在想这能不能换顿饭钱。,dorm_enter,MONEY,跟风挖矿|怕烧坏电脑,money:10;stress:10;trait:币圈遗民:GEN,sanity:2;stress:-5:GEN
+EVT_GIRLS_DORM,宿管的凝视,被邀请去女生寝室修路由器。进门时宿管阿姨上下打量你，眼神像防贼：“到底修不修得好啊？别磨蹭。”,dorm_enter,EGO,必须修好|紧张手抖,charm:10;pride:5;stress:10:GEN,stress:20;pride:-5;charm:-5:EGO
+EVT_LEGO_NIGHT,最后的航母,心动网络的投资意向书还没来。你买了个乐高航母，拉着 Feng (凤翔) 拼了一整晚。没有代码，没有争吵，只有积木咬合的脆响。你觉得这才是快乐。,dorm_enter,GEN,专注拼完|聊聊未来,sanity:50;stress:-100;relation_feng:20:GEN,sanity:20;stress:-20;entropy:5:GEN
+EVT_INVEST_EXIT,两百万的抉择,心动网络确认投资200万。庆功宴上香槟满溢。Mark (Xiao) 兴奋地规划着未来。你看着手中的酒杯，突然觉得这一切与你无关了。,office_enter,WORK,拿钱留下|净身退出,money:500000;stress:50;ending:PARTNER_END:WORK,pride:20;stress:-50;ending:REAL_LIFE_END:GEN
+EVT_ICEY_LAUNCH,艾希的爆发,离职后的某天。你看到了《ICEY》在 Steam 霸榜，好评如潮。Mark (Xiao) 真的做到了。屏幕的光映在你的脸上，忽明忽暗。,game_end,GEN,默默购买一份|发消息祝贺,sanity:20;stress:-10;pride:5:GEN,relation_mark:10;relation_feng:10;pride:10:GEN
+EVT_XUAN_T0_CRISIS,终末的账单,Xuan 昨天还在朋友圈晒《终末地》上线倒计时。今天前同事爆料：海外服出现 T0 级事故，PayPal 随机扣款。全网炸锅。你看着屏幕，背脊发凉。,social_enter,GEN,职业性惊恐|人性的唏嘘,stress:30;sanity:-10;trait:敬畏之心:GEN,stress:5;relation_xuan:5;pride:2:GEN

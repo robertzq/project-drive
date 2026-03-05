@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://dud3xeapassj2"]
+
+[ext_resource type="Script" uid="uid://cbaufeeh3cgpy" path="res://llm_manager.gd" id="1_bwtc6"]
+
+[node name="GameScene" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+
+[node name="RainEffect" type="GPUParticles2D" parent="."]
+
+[node name="CarInterior" type="CanvasGroup" parent="."]
+
+[node name="LaoYouSprite" type="AnimatedSprite2D" parent="CarInterior"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="DialoguePanel" type="Panel" parent="UI"]
+offset_left = 3.0
+offset_top = 252.0
+offset_right = 1029.0
+offset_bottom = 531.0
+
+[node name="DialogueLabel" type="RichTextLabel" parent="UI/DialoguePanel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 1023.0
+offset_bottom = 278.0
+theme_override_font_sizes/normal_font_size = 32
+tab_size = 8
+
+[node name="InputBox" type="LineEdit" parent="UI"]
+offset_left = 3.0
+offset_top = 566.0
+offset_right = 778.0
+offset_bottom = 641.0
+theme_override_font_sizes/font_size = 32
+
+[node name="SystemMessageLabel" type="RichTextLabel" parent="UI"]
+offset_right = 1029.0
+offset_bottom = 228.0
+theme_override_font_sizes/normal_font_size = 32
+
+[node name="LLMManager" type="Node" parent="."]
+script = ExtResource("1_bwtc6")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
