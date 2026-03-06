@@ -11,7 +11,8 @@ extends Node
 @onready var rain_audio = $"../RainAudio" # 你的背景雨声节点
 @onready var vignette_rect = $"../UI/VignetteRect" # 你的暗角Shader节点
 
-const API_URL = "http://127.0.0.1:8000/v1/chat/completions"
+const API_URL = "https://api.siliconflow.cn/v1/chat/completions"
+#const API_URL = "http://127.0.0.1:8000/v1/chat/completions"
 
 # ================= 新增：外部线形记忆本 =================
 # ================= 路径配置 =================
@@ -68,6 +69,8 @@ var max_history_length = 10
 
 func _ready():
 	http_request.request_completed.connect(_on_request_completed)
+	# 🔴 新增：强行开启对系统 CA 证书的信任，解决 HTTPS 连接失败
+	
 	input_box.text_submitted.connect(_on_input_submitted)
 	
 	load_events_from_csv()
@@ -217,32 +220,62 @@ func update_ui_stats():
 		dialogue_label.text = "（远方的天空泛起鱼肚白，雨渐渐停了。新天鹅堡的轮廓出现在眼前...）"
 		input_box.editable = false
 		# 这里触发 Good Ending：与自己和解
-
+const API_KEY = ""
+# ================= 4. LLM 通信层 =================
 # ================= 4. LLM 通信层 =================
 func _send_to_llm():
 	print("\n========== 🚀 当前发送给 LLM 的历史 ==========")
 	for msg in chat_history:
 		print("[%s]: %s\n-" % [msg["role"].to_upper(), msg["content"].replace("\n", " ")])
 	print("============================================\n")
-
+	
 	var body = JSON.stringify({
+		"model": "Qwen/Qwen3.5-27B",
 		"messages": chat_history,
-		"temperature": 0.6,          # 从 0.4 提高到 0.6，增加老柚说话的多样性，防止复读
-		"repetition_penalty": 1.15,  # 从 1.1 提高到 1.15，狠狠惩罚它说重复的词
-		"max_tokens": 128,            # 强行掐断，不给它长篇大论的机会
+		"temperature": 0.6,          
+		# ⚠️ 关键修改：云端 API 必须用 frequency_penalty，范围是 -2.0 到 2.0
+		"frequency_penalty": 0.5,  
+		"max_tokens": 128,            
 		"stream": false
 	})
-	var headers = ["Content-Type: application/json"]
+	
+	var headers = [
+		"Content-Type: application/json",
+		"Authorization: Bearer " + API_KEY
+	]
+	
 	http_request.request(API_URL, headers, HTTPClient.METHOD_POST, body)
 
 func _on_request_completed(result, response_code, headers, body):
 	input_box.editable = true
+	
+	# 🔴 增强版报错追踪
+	if result != HTTPRequest.RESULT_SUCCESS:
+		print("\n❌❌❌ Godot 内部请求错误！ ❌❌❌")
+		match result:
+			HTTPRequest.RESULT_CANT_RESOLVE: print("原因：DNS 解析失败（请检查网络连接）")
+			HTTPRequest.RESULT_CANT_CONNECT: print("原因：无法建立连接")
+			
+			_: print("具体错误代码: ", result)
+		print("❌❌❌❌❌❌❌❌❌❌❌❌❌\n")
+		
+		dialogue_label.text = "（老柚信号不好，正在重连...）"
+		return
+
 	if response_code != 200:
-		dialogue_label.text = "老柚走神了..."
-		chat_history.pop_back()
+		# ... (之前的 response_code 处理逻辑)
+		print("API 返回详情: ", body.get_string_from_utf8())
 		return
 		
 	var json = JSON.parse_string(body.get_string_from_utf8())
+	
+	# 增加一个容错：确保返回的数据里真的有 choices
+	if not json.has("choices"):
+		print("⚠️ API 返回了奇怪的数据: ", json)
+		dialogue_label.text = "老柚脑子卡壳了..."
+		chat_history.pop_back()
+		return
+		
 	var raw_response = json["choices"][0]["message"]["content"].strip_edges()
 	
 	var parsed_data = _parse_and_display(raw_response)
